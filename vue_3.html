@@ -12,17 +12,17 @@
 		</style>
 	</head>
 	<body>
-	
+    <!--Card container-->
 	<div id="app" class="card">
 		<span v-if="profile">
-
+            <!----Profile pic----->
 			<div v-if="profile.pic">
 				<img v-bind:src="profile.pic" >
 			</div>
 			<div v-else>
 				<img v-bind:src="profile.avatar">
 			</div>
-
+            <!-- Description container-->
 			<div class="container">
 				<div v-if="profile.fname && profile.lname">
 					<h1> {{profile.fname}} {{profile.lname}} </h1>
