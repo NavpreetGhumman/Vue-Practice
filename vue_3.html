@@ -5,15 +5,45 @@
 		<meta charset="UTF-8">
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<style>
-			.special {background:yellow; border: 1px dotted #fe0000; padding:30px; display:block; text-align:center;}
-			.important {font-weight:bold; font-size:30px;}
+			img{width: 100%; height: auto;}
+			.card {box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;width: 25%; margin: auto; padding: 20px;}
+			.card:hover {box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);}
+			p {font-family: sans-serif}
 		</style>
 	</head>
 	<body>
 	
-	<div id="app">
+	<div id="app" class="card">
 		<span v-if="profile">
-			Profile of {{profile.fname}} {{profile.lname}} 
+
+			<div v-if="profile.pic">
+				<img v-bind:src="profile.pic" >
+			</div>
+			<div v-else>
+				<img v-bind:src="profile.avatar">
+			</div>
+
+			<div class="container">
+				<div v-if="profile.fname && profile.lname">
+					<h1> {{profile.fname}} {{profile.lname}} </h1>
+				</div>
+				<div v-else>
+					<h1>Name not found</h1>
+				</div>
+
+				<div v-if="profile.desc">
+					<h2>{{profile.desc}}</h2>
+				</div>
+				<div v-else>
+					<h2>Desc not found</h2>
+				</div>
+				<div v-if="profile.bio">
+					<p>{{profile.bio}}</p>
+				</div>
+				<div v-else>
+					<p>Bio not available</p>
+				</div>
+			</div>
 		</span>
 		<span v-else>
 			No Profile Data found.
@@ -25,14 +55,15 @@
 		el: '#app',
 		
 		data:{
-			/*
 			profile:{
-				fname: "John",
-				lname: "Doe"	
+				fname: "Navpreet",
+				lname: "Kaur",
+				desc: 'Web Developer',
+				bio: 'Navpreet is a full-stack web developer based in Toronto who is currently finishing the Web Development Post-graduate program at Humber College. She has a master’s degree in Information Technology from GNDU, India. She constantly looking for ways to challenge herself and Web Development has given her that creative space to design websites and solve problems. Her goal is to always build products that provide pixel-perfect, performant experiences.',
+				pic: 'images/myimage.jpg',
+				avatar: 'images/avater.png'
 			}
-			*/
 		}
-		
 	});
 	</script>
 	
