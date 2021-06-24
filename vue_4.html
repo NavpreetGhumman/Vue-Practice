@@ -1,27 +1,27 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>v-for Loops</title>
-		<meta charset="UTF-8">
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		<style>
-			ul {list-style-type:none;}
-			ul li{marign-bottom:20px;}
-			.newLine {white-space:pre-line;}
-		</style>
-	</head>
-	<body>
+<head>
+	<title>v-for Loops</title>
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+		ul {list-style-type:none;}
+		ul li{marign-bottom:20px;}
+		.newLine {white-space:pre-line;}
+	</style>
+</head>
+<body>
 
-	<div id="app">
-		<ul v-bind:class="Style">
-			<li v-for="part in scene" v-bind:style="part.character === 'MACBETH' ? 'color: red;' : 'color: blue;'">
-				<span>{{part.character}}</span>
-				<p>{{part.dialogue}}</p>
-			</li>
-		</ul>
-	</div>
+<div id="app">
+	<ul v-bind:class="Style">
+		<li v-for="part in scene" v-bind:style="part.character === 'MACBETH' ? 'color: red;' : 'color: blue;'">
+			<span>{{part.character}}</span>
+			<p>{{part.dialogue}}</p>
+		</li>
+	</ul>
+</div>
 
-	<script>
+<script>
 	var app = new Vue({
 		el: '#app',
 
@@ -41,13 +41,13 @@
 			//Next line
 			//MACBETH
 
-		    //Prithee, peace:
-		    //I dare do all that may become a man;
-		    //Who dares do more is none.
+			//Prithee, peace:
+			//I dare do all that may become a man;
+			//Who dares do more is none.
 
 		}
 
 	});
-	</script>
-	</body>
+</script>
+</body>
 </html>

@@ -9,6 +9,7 @@
 		</style>
 	</head>
 	<body>
+
 	<p>Tournament Selection. <a href="https://cemc.uwaterloo.ca/contests/computing/2016/stage%201/juniorEn.pdf">from the J1 problem hosted by the CCC in 2016.</a></p>
 	<p>Type W for win and L for lose and determine which group a player is placed in from Group 1, 2, and 3.</p>
 	<p>if a player wins 5 or 6 games, they are placed in Group 1; </p>
@@ -39,14 +40,12 @@
 			<div><label>show Group:</label><input type="checkbox" v-model="group_diagnostics"></div>
 			<div v-if="group_diagnostics">Number of win: {{number_of_win}}</div>
 			<span v-if="group_diagnostics">Group Number {{group}}</span>
-		</div>
-	</div>
-	
+
 	<script>
 	var app = new Vue({
 		el: '#app',
 		data:{
-			group_diagnostics:false,
+            group_diagnostics:false,
 			game_1_result:'',
 			game_2_result:'',
 			game_3_result:'',
@@ -54,26 +53,24 @@
 			game_5_result:'',
 			game_6_result:'',
 		},
-		computed:{
-			win_total:function(){
+		computed: {
+			win_total: function () {
 				var result = (this.game_1_result + this.game_2_result + this.game_3_result + this.game_4_result + this.game_5_result + this.game_6_result).match(/W/g);
-				return  result;
+				return result;
 			},
-			number_of_win:function(){
+			number_of_win: function () {
 				return (this.win_total).length;
 			},
-			group:function (){
-				if((this.win_total).length == 5 || (this.win_total).length == 6){
-					return  result3 = 1;
-				}else if((this.win_total).length == 3 || (this.win_total).length == 4){
-					return  result3 = 2;
-				}else if((this.win_total).length == 1 || (this.win_total).length == 2){
-					return  result3 = 3;
+			group: function () {
+				if ((this.win_total).length == 5 || (this.win_total).length == 6) {
+					return result3 = 1;
+				} else if ((this.win_total).length == 3 || (this.win_total).length == 4) {
+					return result3 = 2;
+				} else if ((this.win_total).length == 1 || (this.win_total).length == 2) {
+					return result3 = 3;
+				} else {
+					return result3 = -1;
 				}
-				else{
-					return  result3 = -1;
-				}
-
 			}
 		}
 	});
